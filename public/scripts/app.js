@@ -16,20 +16,16 @@ var onFormSubmit = function onFormSubmit(e) {
     if (option) {
         app.options.push(option);
         e.target.elements.option.value = '';
-        renderFormSubmit();
-        console.log(app.options.length);
+        render();
     }
 };
 
 var removeAll = function removeAll() {
-    if (app.options.length > 0) {
-        app.options = [];
-        renderFormSubmit();
-        console.log(app.options.length);
-    }
+    app.options = [];
+    render();
 };
 
-var renderFormSubmit = function renderFormSubmit() {
+var render = function render() {
     var template = React.createElement(
         'div',
         null,
@@ -50,11 +46,6 @@ var renderFormSubmit = function renderFormSubmit() {
             app.options.length > 0 ? 'Here are your options:' : 'No options'
         ),
         React.createElement(
-            'p',
-            null,
-            app.options.length
-        ),
-        React.createElement(
             'button',
             { onClick: removeAll },
             'Remove All'
@@ -62,16 +53,13 @@ var renderFormSubmit = function renderFormSubmit() {
         React.createElement(
             'ol',
             null,
-            React.createElement(
-                'li',
-                null,
-                'Item one'
-            ),
-            React.createElement(
-                'li',
-                null,
-                'Item two'
-            )
+            app.options.map(function (option) {
+                return React.createElement(
+                    'li',
+                    { key: option },
+                    option
+                );
+            })
         ),
         React.createElement(
             'form',
@@ -90,4 +78,4 @@ var renderFormSubmit = function renderFormSubmit() {
 
 var appRoot = document.getElementById('app');
 
-renderFormSubmit();
+render();

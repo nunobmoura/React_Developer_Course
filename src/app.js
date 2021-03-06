@@ -3,51 +3,52 @@ console.log('App.js is running');
 const app = {
     title: 'Indecision App',
     subtitle: 'This is the substitle',
-    options: ['One', 'Two']
+    options: []
 };
 
-const template = (
-    <div>
-        <h1>{app.title}</h1>
-        {app.subtitle && <p>{app.subtitle}!</p>}
-        <p>{app.options.length > 0 ? 'Here are your options:' : 'No options'}</p>
-        <ol>
-            <li>Item one</li>
-            <li>Item two</li>
-        </ol>
-    </div>
-);
+const onFormSubmit = (e) => {
+    e.preventDefault();
 
+    const option = e.target.elements.option.value;
 
-
-
-let count = 0;
-const addOne = () => {
-    count++;
-    renderCounterApp();
+    if (option) {
+        app.options.push(option);
+        e.target.elements.option.value = '';
+        renderFormSubmit();
+        console.log(app.options.length);
+    }
 };
-const minusOne = () => {
-    count--;
-    renderCounterApp();
+
+const removeAll = () => {
+    if (app.options.length > 0) {
+        app.options = [];
+        renderFormSubmit();
+        console.log(app.options.length);
+    }
 };
-const reset = () => {
-    count = 0;
-    renderCounterApp();
+
+const renderFormSubmit = () => {
+    const template = (
+        <div>
+            <h1>{app.title}</h1>
+            {app.subtitle && <p>{app.subtitle}!</p>}
+            <p>{app.options.length > 0 ? 'Here are your options:' : 'No options'}</p>
+            <p>{app.options.length}</p>
+            <button onClick={removeAll}>Remove All</button>
+            <ol>
+                <li>Item one</li>
+                <li>Item two</li>
+            </ol>
+            <form onSubmit={onFormSubmit}>
+                <input type="text" name="option"/>
+                <button>Add option</button>
+            </form>
+        </div>
+    );
+    
+    ReactDOM.render(template, appRoot);
 };
 
 const appRoot = document.getElementById('app');
 
-const renderCounterApp = () => {
-    const templateTwo = (
-        <div>
-        <h1>Count: {count}</h1>
-        <button onClick={addOne}>+1</button>
-        <button onClick={minusOne}>-1</button>
-        <button onClick={reset}>Reset</button>
-        </div>
-    );
-
-    ReactDOM.render(templateTwo, appRoot);
-};
-
-renderCounterApp();
+renderFormSubmit();

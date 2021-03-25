@@ -22,7 +22,7 @@ class IndecisionApp extends React.Component {
 
     handlePick() {
         const randomNum = Math.floor(Math.random() * this.state.options.length);
-        const option = this.state.options[randomNum]
+        const option = this.state.options[randomNum];
         alert(option);
     }
 
@@ -33,16 +33,17 @@ class IndecisionApp extends React.Component {
             return 'Option already exists'
         }
         this.setState((prevState) => ({
-            options: prevState.options.concat(option) 
+            options: prevState.options.concat(option)
         }));
     }
 
     render() {
         const subtitle = 'Put your life in the hands of a computer';
+        const title = 'Indecision App';
 
         return (
             <div>
-                <Header subtitle={subtitle} />
+                <Header title={title} subtitle={subtitle} />
                 <Action
                     hasOptions={this.state.options.length > 0}
                     handlePick={this.handlePick}
@@ -50,7 +51,7 @@ class IndecisionApp extends React.Component {
                 <Options
                     options={this.state.options}
                     handleDeleteOptions={this.handleDeleteOptions}
-                    handleDeleteOptionSingle ={this.handleDeleteOptionSingle}
+                    handleDeleteOptionSingle={this.handleDeleteOptionSingle}
                 />
                 <AddOption
                     handleAddOption={this.handleAddOption}
@@ -74,7 +75,7 @@ const Header = (props) => {
 };
 
 Header.defaultProps = {
-    title: 'Indecision'
+    title: 'Experienc'
 };
 
 const Action = (props) => {
@@ -82,7 +83,8 @@ const Action = (props) => {
         <div>
             <button
                 onClick={props.handlePick}
-                disabled={!props.hasOptions}>
+                disabled={!props.hasOptions}
+            >
                 What should I do?
             </button>
         </div>

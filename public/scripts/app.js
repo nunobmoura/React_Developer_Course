@@ -69,11 +69,12 @@ var IndecisionApp = function (_React$Component) {
         key: 'render',
         value: function render() {
             var subtitle = 'Put your life in the hands of a computer';
+            var title = 'Indecision App';
 
             return React.createElement(
                 'div',
                 null,
-                React.createElement(Header, { subtitle: subtitle }),
+                React.createElement(Header, { title: title, subtitle: subtitle }),
                 React.createElement(Action, {
                     hasOptions: this.state.options.length > 0,
                     handlePick: this.handlePick
@@ -115,7 +116,7 @@ var Header = function Header(props) {
 };
 
 Header.defaultProps = {
-    title: 'Indecision'
+    title: 'Experienc'
 };
 
 var Action = function Action(props) {
@@ -126,7 +127,8 @@ var Action = function Action(props) {
             'button',
             {
                 onClick: props.handlePick,
-                disabled: !props.hasOptions },
+                disabled: !props.hasOptions
+            },
             'What should I do?'
         )
     );

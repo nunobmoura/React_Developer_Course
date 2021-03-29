@@ -4,8 +4,16 @@
   "main": "index.js",
   "author": "Nuno Moura",
   "license": "MIT",
+  "scripts": {
+    "build-babel": "npx babel src/app.js --out-file=public/scripts/app.js --presets=@babel/preset-env,@babel/preset-react --watch",
+    "serve": "live-server public/",
+    "build": "webpack --watch"
+  },
   "dependencies": {
-    "babel-preset-env": "1.5.2",
-    "babel-preset-react": "6.24.1"
+    "@babel/cli": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "live-server": "^1.2.1",
+    "webpack": "^5.28.0"
   }
 }

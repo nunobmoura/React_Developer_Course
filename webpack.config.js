@@ -32,8 +32,14 @@ module.exports = {
       ]
     }]
   },
+  resolve: {
+    alias: {
+      Components: path.resolve(__dirname, 'src/components/'),
+    },
+  },
   devtool: 'eval-cheap-module-source-map',
   devServer: {
-    contentBase: path.join(__dirname, 'public')
+    contentBase: path.join(__dirname, 'public'),
+    historyApiFallback: true
   }
 };

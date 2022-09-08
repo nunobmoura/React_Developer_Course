@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 export class AddExpensePage extends React.Component {
   onSubmit = (expense) => {
-    this.props.onSubmit(expense);
+    this.props.addExpense(expense);
     this.props.navigate('/');
   };
   render() {
@@ -20,7 +20,7 @@ export class AddExpensePage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  onSubmit: (expense) => dispatch(addExpense(expense)),
+  addExpense: (expense) => dispatch(addExpense(expense)),
 });
 
 const WithNavigate = (props) => {

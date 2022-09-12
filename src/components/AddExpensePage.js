@@ -23,9 +23,9 @@ const mapDispatchToProps = (dispatch) => ({
   addExpense: (expense) => dispatch(addExpense(expense)),
 });
 
-const WithNavigate = (props) => {
+const PageWithNavigate = (props) => {
   const navigate = useNavigate();
   return <AddExpensePage {...props} navigate={navigate} />
 }
 
-export default connect(undefined, mapDispatchToProps)(WithNavigate);
+export default connect(undefined, mapDispatchToProps)(PageWithNavigate);

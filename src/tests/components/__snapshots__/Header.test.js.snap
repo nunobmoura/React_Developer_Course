@@ -3,7 +3,7 @@
 exports[`should render Header correctly 1`] = `
 <header>
   <h1>
-    Expensify
+    Expensify 01
   </h1>
   <ul>
     <li>
@@ -11,7 +11,7 @@ exports[`should render Header correctly 1`] = `
         className={[Function]}
         to="/"
       >
-        Dashboard
+        Dashboard02
       </NavLink>
     </li>
     <li>

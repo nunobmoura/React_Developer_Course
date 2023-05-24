@@ -15,7 +15,7 @@ exports[`should render ExpenseListItem with fixture data 1`] = `
         Amount:
       </h4>
       <p>
-        195
+        $1.95
       </p>
     </li>
     <li>
@@ -23,7 +23,7 @@ exports[`should render ExpenseListItem with fixture data 1`] = `
         CreatedAt:
       </h4>
       <p>
-        0
+        01 / Jan / 1970
       </p>
     </li>
   </ul>
